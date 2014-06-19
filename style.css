@@ -1,11 +1,17 @@
 body {
-    background-color: #e0e0e0
+    background-color: #333;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 h1, h2 {
+    font-size: 36px;
+    font-weight: 500;
+    color: #FFF;
     text-align: center;
+    margin: 20px;
     text-shadow: 1px 1px 3px rgba(100, 100, 100, 0.8);
 }
+
 
 .input-text {
     border: 0;
@@ -29,9 +35,9 @@ form {
     width: 370px;
     margin: 0 auto;
 
-    box-shadow: 3px 3px 6px rgba(100, 100, 100, 0.8);
-    -moz-box-shadow: 3px 3px 6px rgba(100, 100, 100, 0.8);
-    -webkit-box-shadow: 3px 3px 6px rgba(100, 100, 100, 0.8);
+    box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.8);
+    -moz-box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.8);
+    -webkit-box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.8);
 }
 
 form ul {
@@ -45,7 +51,7 @@ form ul li {
     border-top: 2px solid #FFF;
     font-size: 12px;
 }
-form ul li:first-child { /*最初のliにはボーダーをつけない*/
+form ul li:first-child {
     border-top: none;
 }
 
