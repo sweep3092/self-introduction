@@ -1,0 +1,21 @@
+body {
+    background: url(../img/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center 20%;
+}
+
+img.bg {
+    width: 100%;
+    left: 50%;
+    margin-left: -512px;
+    top: -200px;
+}
+
+h1#name.absolute {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+}

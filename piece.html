@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>introduction of me</title>
+        <meta charset="UTF-8">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/form.css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+    </head>
+
+    <body>
+        <section id="header" class="bar">
+            <h1 id="name" class="white">YOU KOBAYASHI</h1>
+        </section>
+
+        <div id="content">
+            <h2>m i l e a g e</h2>
+                <div id="form">
+                    <form>
+                        <ul>
+                            <li>
+                                <label>
+                                    <span class="label">出発地</span>
+                                    <input id="departure" type="text" class="input-text" size="35" value="">
+                                </label>
+                            </li>
+                        
+                            <li>
+                                <label>
+                                    <span class="label">目的地</span>
+                                    <input id="destination" type="text" class="input-text" size="35" value="">
+                                </label>
+                            </li>
+                            
+                            <li>
+                                <label>
+                                    <span class="label">燃費</span>
+                                    <input id="efficiency" type="text" class="input-text" size="35" value="">
+                                    <span>km/L</span>
+                                </label>
+                            </li>
+                            
+                            <li>
+                                <label>
+                                    <span class="label">油種</span>
+                                    <label><input name="oiltype" type="radio" class="radio" value="0" checked="checked">レギュラー</label>
+                                    <label><input name="oiltype" type="radio" class="radio" value="1">ハイオク</label>    
+                                </label>
+                            </li>
+
+                            <li><button id="calc">Calculate</button></li>
+                        </ul>
+                    </form>
+                </div>
+        </div>
+
+        <section id="footer" class="bar">
+            <ul>
+                <li><button id="to-title" class="btn">title</button></li>
+                <li><button id="to-profile" class="btn">profile</button></li>
+                <li><button id="to-piece" class="btn btn-selected">piece</button></li>
+            </ul>
+        </section>
+
+    </body>
+</html>

@@ -41,3 +41,16 @@ form ul li p label {
     width: 9em;
 }
 
+.input-text {
+    border: 0;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    color: #aaa;
+    border: solid 1px #ccc;
+    margin: 0 0 20px;
+    width: 200px;
+
+    box-shadow: inset 1px 2px 5px -3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: inset 1px 2px 5px -3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: inset 1px 2px 5px -3px rgba(0, 0, 0, 0.5);
+}
