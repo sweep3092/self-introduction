@@ -8,6 +8,8 @@
         <link rel="stylesheet" type="text/css" href="css/common.css">
         <link rel="stylesheet" type="text/css" href="css/form.css">
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="js/mileage.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
     </head>
 
@@ -16,44 +18,45 @@
             <h1 id="name" class="white">YOU KOBAYASHI</h1>
         </section>
 
-        <div id="content">
+        <div id="content" class="center">
             <h2>m i l e a g e</h2>
-                <div id="form">
-                    <form>
-                        <ul>
-                            <li>
-                                <label>
-                                    <span class="label">出発地</span>
-                                    <input id="departure" type="text" class="input-text" size="35" value="">
-                                </label>
-                            </li>
+            <div id="form" class="block-item">
+                <form>
+                    <ul>
+                        <li>
+                            <label>
+                                <span class="label">出発地</span>
+                                <input id="departure" type="text" class="input-text" size="35" value="">
+                            </label>
+                        </li>
+                    
+                        <li>
+                            <label>
+                                <span class="label">目的地</span>
+                                <input id="destination" type="text" class="input-text" size="35" value="">
+                            </label>
+                        </li>
                         
-                            <li>
-                                <label>
-                                    <span class="label">目的地</span>
-                                    <input id="destination" type="text" class="input-text" size="35" value="">
-                                </label>
-                            </li>
-                            
-                            <li>
-                                <label>
-                                    <span class="label">燃費</span>
-                                    <input id="efficiency" type="text" class="input-text" size="35" value="" placeholder="Km/L">
-                                </label>
-                            </li>
-                            
-                            <li>
-                                <label>
-                                    <span class="label">油種</span>
-                                    <label><input name="oiltype" type="radio" class="radio" value="0" checked="checked">レギュラー</label>
-                                    <label><input name="oiltype" type="radio" class="radio" value="1">ハイオク</label>    
-                                </label>
-                            </li>
+                        <li>
+                            <label>
+                                <span class="label">燃費</span>
+                                <input id="efficiency" type="text" class="input-text" size="35" value="" placeholder="Km/L">
+                            </label>
+                        </li>
+                        
+                        <li>
+                            <label>
+                                <span class="label">油種</span>
+                                <label><input name="oiltype" type="radio" class="radio" value="0" checked="checked">レギュラー</label>
+                                <label><input name="oiltype" type="radio" class="radio" value="1">ハイオク</label>    
+                            </label>
+                        </li>
 
-                            <li><button id="calc" class="btn btn-clickable">Calculate</button></li>
-                        </ul>
-                    </form>
-                </div>
+                        <li><button id="calc" class="btn btn-clickable">Calculate</button></li>
+                    </ul>
+                </form>
+            </div>
+            <div id="map-canvas" class="height-500"></div>
         </div>
 
         <section id="footer" class="bar">
