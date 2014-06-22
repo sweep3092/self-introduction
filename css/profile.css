@@ -1,0 +1,15 @@
+.block-item {
+    margin: 0 auto;
+    display: inline-block;
+    width: 400px;
+    height: 100%;
+}
+
+.block-item#history {
+    text-align: left;
+}
+
+dt {
+    clear: both;
+    float: left;
+}

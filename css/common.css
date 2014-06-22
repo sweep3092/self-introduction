@@ -1,5 +1,13 @@
+@font-face {
+    font-family: "mplus-1p-regular";
+    src: url('../fonts/mplus-1p-regular.ttf')
+    format("truetype");
+}
+body {
+    font-family: 'Open Sans', 'mplus-1p-regular';
+}
 #header {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -30,8 +38,8 @@
 /* button */
 .btn {
     width: 200px;
-    font-family: inherit;
     font-size: inherit;
+    font-family: 'Open Sans';
     background: none;
     cursor: pointer;
     padding: 10px;
@@ -87,6 +95,8 @@ h1#name {
 div#content {
     margin-top: 150px;
     position: relative;
+    text-align: center;
+    margin-bottom: 150px;
 }
 
 .center {
