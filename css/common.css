@@ -78,6 +78,10 @@ body {
     background: #FFF;
 }
 
+.btn-clickable {
+    background: #0E83CD;
+}
+
 h1, h2 {
     font-size: 3em;
     font-weight: 300;
