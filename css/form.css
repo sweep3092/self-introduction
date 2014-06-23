@@ -1,13 +1,8 @@
 form {
     padding: 10px;
-    border: 1px solid #ccc;
     color: #666;
     background: white;
     height: 100%;
-
-    box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.8);
-    -moz-box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.8);
-    -webkit-box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.8);
 }
 
 form ul {
@@ -18,7 +13,6 @@ form ul li {
     list-style: none;
     margin: 0px;
     padding: 10px;
-    border-top: 2px solid #FFF;
     font-size: 12px;
 }
 form ul li:first-child {
@@ -41,7 +35,6 @@ form ul li p label {
 }
 
 .input-text {
-    border: 0;
     padding: 5px;
     font-family: Arial, sans-serif;
     color: #aaa;
@@ -63,4 +56,15 @@ form ul li p label {
 .height-500 {
     height: 500px;
     margin: 10px;
+}
+
+div.panel {
+    display: inline-block;
+    width: 500px;
+    margin: 10px;
+}
+
+p.help {
+    font-size: 0.8em;
+    color: gray;
 }
