@@ -1,9 +1,11 @@
-function show_map() {
+var distance;
+
+var show_map = function() {
     $("#map-canvas").show().addClass("block-shadow");
 }
 
 // Google Maps API geocoder
-function find_geocode(place_name) {
+var find_geocode = function(place_name) {
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode( { address: place_name }, function(result, status) {
         if ( status == google.maps.GeocoderStatus.OK ) {
@@ -16,7 +18,7 @@ function find_geocode(place_name) {
 }
 
 // Google Maps API
-function draw_map(geocode) {
+var draw_map = function(geocode) {
     if (!geocode) return false;
 
     var opts = {
@@ -34,7 +36,7 @@ function draw_map(geocode) {
 }
 
 // Google Maps API route-Request
-function show_route(departure, destination) {
+var show_route = function(departure, destination) {
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var directionsService = new google.maps.DirectionsService();
 
@@ -56,7 +58,7 @@ function show_route(departure, destination) {
     directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
-            $("#distance").val(response.routes[0].legs[0].distance.value);
+            distance = response.routes[0].legs[0].distance.value;
             show_map();
         }
         else {
@@ -66,15 +68,39 @@ function show_route(departure, destination) {
 }
 
 $(document).ready(function() {
+    var draw_result = function(response) {
+        $("#panel-result").parent().remove();
+        var result_section = $("<section>");
+        var result_panel = $("<div>");
+        result_panel.addClass("panel block-shadow").attr("id", "panel-result");
+        $("<p>").text( "走行距離: " + distance * 0.001 + "Km" ).appendTo( result_panel );
+        $("<p>").text( "燃料単価: ¥" + response.price[0] ).appendTo( result_panel );
+        $("<p>").text( "ガソリン代: ¥" + response.cost ).appendTo( result_panel );
+
+        // result_panel.append( $("<p>").text( "燃料単価: ¥" + response.price ) );
+        // result_panel.append( $("<p>").text( "ガソリン代: ¥" + response.cost ) );
+
+        result_section.append(result_panel);
+
+        console.log(result_section);
+
+        $("#help").parent().after(result_section);
+
+        // console.log(response.price);
+    }
+
     $("#calc").click(function(e) {
         e.preventDefault();
-        var efficiency  = $("#efficiency").val();
+        var efficiency = $("#efficiency").val();
         if ( !$.isNumeric(efficiency) ) {
             alert("燃費が正しく設定されていません");
             return;
         }
-        var distance    = $("#distance").val();
-        var oiltype     = $("#oiltype").val();
+        if ( !$.isNumeric(distance) ) {
+            alert("走行距離が計算できませんでした");
+            return;
+        }
+        var oiltype = $("#oiltype").val();
         var destination = $("#destination").val();
         if ( !destination ) {
             alert("目的地が正しく設定されていません");
@@ -85,15 +111,16 @@ $(document).ready(function() {
             url : "http://mileage.youk.info/mileage-twei/result.php",
             crossDomain: true,
             data : {
-                oiltype : oiltype,
-                destination : destination,
-                distance : distance,
-                efficiency : efficiency
+                oiltype: oiltype,
+                destination: destination,
+                distance: distance,
+                efficiency: efficiency
             },
             type : "get",
             dataType: "jsonp",
             success : function(data) {
                 console.log( data );
+                draw_result(data);
             }
         });
     });
