@@ -1,5 +1,3 @@
-var location_geocode;
-
 function show_map() {
     $("#map-canvas").show().addClass("block-shadow");
 }
@@ -9,8 +7,7 @@ function find_geocode(place_name) {
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode( { address: place_name }, function(result, status) {
         if ( status == google.maps.GeocoderStatus.OK ) {
-            location_geocode = result[0].geometry.location;
-            draw_map( location_geocode );
+            draw_map(result[0].geometry.location);
         }
         else {
             alert("指定されたポイントの検索に失敗");
@@ -72,24 +69,31 @@ $(document).ready(function() {
     $("#calc").click(function(e) {
         e.preventDefault();
         var efficiency  = $("#efficiency").val();
+        if ( !$.isNumeric(efficiency) ) {
+            alert("燃費が正しく設定されていません");
+            return;
+        }
         var distance    = $("#distance").val();
         var oiltype     = $("#oiltype").val();
-        console.log(location_geocode);
+        var destination = $("#destination").val();
+        if ( !destination ) {
+            alert("目的地が正しく設定されていません");
+            return;
+        }
 
         $.ajax({
-            url : "http://api.gogo.gs/v1.2/",
+            url : "http://mileage.youk.info/mileage-twei/result.php",
             crossDomain: true,
             data : {
-                apid : "mileagekdjfaoirj",
-                num   : 1,
-                kind  : oiltype,
-                lat   : location_geocode.lat(),
-                lon   : location_geocode.lng()
+                oiltype : oiltype,
+                destination : destination,
+                distance : distance,
+                efficiency : efficiency
             },
             type : "get",
-            dataType: "xml",
-            success : function(xml) {
-                console.log( $(xml.responseText) );
+            dataType: "jsonp",
+            success : function(data) {
+                console.log( data );
             }
         });
     });
