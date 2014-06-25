@@ -77,16 +77,9 @@ $(document).ready(function() {
         $("<p>").text( "燃料単価: ¥" + response.price[0] ).appendTo( result_panel );
         $("<p>").text( "ガソリン代: ¥" + response.cost ).appendTo( result_panel );
 
-        // result_panel.append( $("<p>").text( "燃料単価: ¥" + response.price ) );
-        // result_panel.append( $("<p>").text( "ガソリン代: ¥" + response.cost ) );
-
         result_section.append(result_panel);
 
-        console.log(result_section);
-
         $("#help").parent().after(result_section);
-
-        // console.log(response.price);
     }
 
     $("#calc").click(function(e) {
