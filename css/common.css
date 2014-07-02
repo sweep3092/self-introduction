@@ -5,7 +5,6 @@
 }
 body {
     font-family: 'Open Sans', 'mplus-1p-regular';
-    -webkit-text-size-adjust: 100%;
 }
 #header {
     position: absolute;
