@@ -1,3 +1,4 @@
+// Linker
 $(document).ready(function() {
     $("#to-title:not(.btn-selected)").click(function() {
         location.href = "index.html";

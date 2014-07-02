@@ -17,9 +17,9 @@ $res_gas   = simplexml_load_file($req_gas);
 $cost = $_GET['distance'] / $_GET['efficiency'] * $res_gas->Item->Price * 0.001;
 
 $output = array(
-    'price' => $res_gas->Item->Price,
+    'price'    => $res_gas->Item->Price,
     'shopcode' => $res_gas->Item->ShopCode,
-    'cost' => floor( $cost ),
+    'cost'     => floor( $cost ),
 );
 
 header( 'Content-Type: text/javascript; charset=utf-8' );
