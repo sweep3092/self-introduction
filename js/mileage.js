@@ -2,6 +2,11 @@
 var distance;
 
 $(document).ready(function() {
+
+
+
+    $("input").val("");
+
     var show_map = function() {
         $("#map-canvas").show().addClass("block-shadow");
     }
@@ -70,17 +75,39 @@ $(document).ready(function() {
     }
 
     var draw_result = function(response) {
+        var link_powered_by = function() {
+            return "<p><a href=\"http://api.gogo.gs\"><image src=\"http://api.gogo.gs/images/api_125x17.png\"></a></p>";
+        }
+
+        var link_gs = function(price, shopcode) {
+            return "<a href=\"http://gogo.gs/shop/" + shopcode + ".html\">¥ " + price + "</a>";
+        }
+
         $("#panel-result").parent().remove();
+
         var result_section = $("<section>");
         var result_panel = $("<div>");
         result_panel.addClass("panel block-shadow").attr("id", "panel-result");
-        $("<p>").text( "走行距離: " + distance * 0.001 + "Km" ).appendTo( result_panel );
-        $("<p>").text( "燃料単価: ¥" + response.price[0] ).appendTo( result_panel );
-        $("<p>").text( "ガソリン代: ¥" + response.cost ).appendTo( result_panel );
+        
+        var dl = $("<dl>");
 
-        result_section.append(result_panel);
+        var content = {
+            "走行距離": distance * 0.001 + "Km",
+            "燃料単価": link_gs( response.price[0], response.shopcode[0] ),
+            "総燃料代": "¥ " + response.cost
+        };
+
+        $.each(content, function(key, val) {
+            $("<dt>").text( key ).addClass("label help").appendTo( dl );
+            $("<dd>").html( val ).addClass("align-left help").appendTo( dl );
+        });
+
+        result_panel.append( dl );
+        result_panel.append( link_powered_by() );
+        result_section.append( result_panel );
 
         $("#help").parent().after(result_section);
+        $("#panel-result").parent().hide().fadeIn();
     }
 
     $("#calc").click(function(e) {
@@ -103,7 +130,7 @@ $(document).ready(function() {
 
         $.ajax({
             url : "http://mileage.youk.info/mileage-twei/result.php",
-            crossDomain: true,
+            crossDomain : true,
             data : {
                 oiltype: oiltype,
                 destination: destination,

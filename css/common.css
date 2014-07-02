@@ -6,6 +6,21 @@
 body {
     font-family: 'Open Sans', 'mplus-1p-regular';
 }
+
+dl {
+    display: inline-block;
+}
+dt {
+    clear: both;
+    float: left;
+}
+dt.label {
+    width: 150px;
+}
+dd.align-left {
+    width: 250px;
+}
+
 #header {
     position: absolute;
     top: 0;

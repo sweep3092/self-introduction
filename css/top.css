@@ -16,6 +16,7 @@ img.bg {
 
 h1#name.absolute {
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 50%;
+    font-size: 2.5em;
 }

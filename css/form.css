@@ -48,9 +48,9 @@ form ul li p label {
 }
 
 .block-shadow {
-    box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.8);
-    -moz-box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.8);
-    -webkit-box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.8);
+    box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.8);
+    -moz-box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.8);
+    -webkit-box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.8);
 }
 
 .height-500 {
@@ -64,7 +64,7 @@ div.panel {
     margin: 10px;
 }
 
-p.help {
+.help {
     font-size: 0.8em;
     color: gray;
 }
