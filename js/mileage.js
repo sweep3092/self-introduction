@@ -76,18 +76,21 @@ $(document).ready(function() {
 
     var draw_result = function(response) {
         var link_powered_by = function() {
-            return "<p><a href=\"http://api.gogo.gs\"><image src=\"http://api.gogo.gs/images/api_125x17.png\"></a></p>";
+            return $("<p>").append(
+                $("<a>", {href: "http://api.gogo.gs"}).append(
+                    $("<image>", {src: "http://api.gogo.gs/images/api_125_17.png"})
+                )
+            );
         }
 
         var link_gs = function(price, shopcode) {
-            return "<a href=\"http://gogo.gs/shop/" + shopcode + ".html\">¥ " + price + "</a>";
+            return $("<a>", {href: "http://gogo.gs/shop/" + shopcode + ".html", text: "¥" + price});
         }
 
         $("#panel-result").parent().remove();
 
         var result_section = $("<section>");
-        var result_panel = $("<div>");
-        result_panel.addClass("panel block-shadow").attr("id", "panel-result");
+        var result_panel = $("<div>", {class: "panel block-shadow", id: "panel-result"});
         
         var dl = $("<dl>");
 
@@ -129,13 +132,13 @@ $(document).ready(function() {
         }
 
         $.ajax({
-            url : "http://mileage.youk.info/mileage-twei/result.php",
+            url : "http://mileage.youk.info/mileage-twei/mileage.php",
             crossDomain : true,
             data : {
-                oiltype: oiltype,
+                oiltype:     oiltype,
                 destination: destination,
-                distance: distance,
-                efficiency: efficiency
+                distance:    distance,
+                efficiency:  efficiency
             },
             type : "get",
             dataType: "jsonp",
