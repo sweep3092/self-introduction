@@ -78,7 +78,7 @@ $(document).ready(function() {
         var link_powered_by = function() {
             return $("<p>").append(
                 $("<a>", {href: "http://api.gogo.gs"}).append(
-                    $("<image>", {src: "http://api.gogo.gs/images/api_125_17.png"})
+                    $("<img>", {src: "http://api.gogo.gs/images/api_125x17.png"})
                 )
             );
         }
