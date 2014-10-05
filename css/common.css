@@ -1,10 +1,6 @@
-@font-face {
-    font-family: "mplus-1p-regular";
-    src: url('../fonts/mplus-1p-regular.ttf')
-    format("truetype");
-}
+
 body {
-    font-family: 'Open Sans', 'mplus-1p-regular';
+    font-family: 'Noto Sans';
 }
 
 dl {
@@ -54,7 +50,7 @@ dd.align-left {
 .btn {
     width: 120px;
     font-size: 0.8em;
-    font-family: 'Open Sans';
+    font-family: 'Noto Sans';
     background: none;
     cursor: pointer;
     padding: 7px;
@@ -103,7 +99,7 @@ h1, h2 {
     color: #89867E;
     text-align: center;
     margin: 10px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Noto Sans';
 }
 
 h1#name {
