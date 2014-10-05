@@ -9,4 +9,7 @@ $(document).ready(function() {
     $("#to-piece:not(.btn-selected)").click(function() {
         location.href = "piece.html";
     });
+    $("#to-license:not(.btn-selected)").click(function() {
+        location.href = "license.html";
+    });
 });
