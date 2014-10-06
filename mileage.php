@@ -17,8 +17,8 @@ $res_gas   = simplexml_load_file($req_gas);
 $cost = $distance / $efficiency * $res_gas->Item->Price * 0.001;
 
 $output = array(
-    'price'    => intval( $res_gas->Item->Price ),
-    'shopcode' => intval( $res_gas->Item->ShopCode ),
+    'price'    => $res_gas->Item->Price,
+    'shopcode' => $res_gas->Item->ShopCode,
     'cost'     => floor( $cost ),
 );
 
