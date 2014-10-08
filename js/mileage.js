@@ -132,7 +132,7 @@ $(document).ready(function() {
         }
 
         $.ajax({
-            url : "http://mileage.youk.info/mileage-twei/mileage.php",
+            url : "http://mileage.youk.info/mileage.php",
             crossDomain : true,
             data : {
                 oiltype:     oiltype,
