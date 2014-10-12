@@ -96,8 +96,8 @@ $(document).ready(function() {
 
         var content = {
             "走行距離": distance * 0.001 + "Km",
-            "燃料単価": link_gs( response.price[0], response.shopcode[0] ),
-            "総燃料代": "¥ " + response.cost
+            "燃料単価": link_gs( response.destination.price, response.destination.shopcode ),
+            "総燃料代": "¥ " + response.destination.cost
         };
 
         $.each(content, function(key, val) {
